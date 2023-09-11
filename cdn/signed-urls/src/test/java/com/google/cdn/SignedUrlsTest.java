@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package com.google.cdn;
 
 import static com.google.cdn.SignedUrls.signUrl;
@@ -42,21 +41,20 @@ public class SignedUrlsTest {
   public void testUrlPath() throws Exception {
     String result = signUrl(BASE_URL + "foo", KEY_BYTES, KEY_NAME, EXPIRATION);
     final String expected = "https://www.example.com/foo?Expires=1518135754&KeyName=my-key&Signature=vUfG4yv47dyns1j9e_OI6_5meuA=";
-    assertEquals(result, expected);
+    assertEquals(expected, result);
   }
 
   @Test
   public void testUrlParams() throws Exception {
     String result = signUrl(BASE_URL + "?param=true", KEY_BYTES, KEY_NAME, EXPIRATION);
     final String expected = "https://www.example.com/?param=true&Expires=1518135754&KeyName=my-key&Signature=6TijW8OMX3gcMI5Kqs8ESiPY97c=";
-    assertEquals(result, expected);
+    assertEquals(expected, result);
   }
-
 
   @Test
   public void testStandard() throws Exception {
     String result = signUrl(BASE_URL, KEY_BYTES, KEY_NAME, EXPIRATION);
     final String expected = "https://www.example.com/?Expires=1518135754&KeyName=my-key&Signature=4D0AbT4y0O7ZCzCUcAtPOJDkl2g=";
-    assertEquals(result, expected);
+    assertEquals(expected, result);
   }
 }
